@@ -6,7 +6,7 @@ const Courses = ({ secretData }) => (
   <Card className="container">
     <CardTitle
       title="Courses"
-      subtitle="You should get access to this page only after authentication."
+      subtitle="courses"
     />
 
     {secretData && <CardText style={{ fontSize: '16px', color: 'green' }}>{secretData}</CardText>}

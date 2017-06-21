@@ -35246,6 +35246,10 @@
 
 	var _SignUpPage2 = _interopRequireDefault(_SignUpPage);
 
+	var _CoursesPage = __webpack_require__(474);
+
+	var _CoursesPage2 = _interopRequireDefault(_CoursesPage);
+
 	var _Auth = __webpack_require__(398);
 
 	var _Auth2 = _interopRequireDefault(_Auth);
@@ -35264,6 +35268,9 @@
 	        callback(null, _HomePage2.default);
 	      }
 	    }
+	  }, {
+	    path: '/courses',
+	    component: _CoursesPage2.default
 	  }, {
 	    path: '/login',
 	    component: _LoginPage2.default
@@ -35325,6 +35332,11 @@
 	      _Auth2.default.isUserAuthenticated() ? _react2.default.createElement(
 	        'div',
 	        { className: 'top-bar-right' },
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/courses' },
+	          'Courses'
+	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/logout' },
@@ -43747,6 +43759,138 @@
 	};
 
 	exports.default = SignUpForm;
+
+/***/ }),
+/* 474 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Auth = __webpack_require__(398);
+
+	var _Auth2 = _interopRequireDefault(_Auth);
+
+	var _Courses = __webpack_require__(475);
+
+	var _Courses2 = _interopRequireDefault(_Courses);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var CoursesPage = function (_React$Component) {
+	  _inherits(CoursesPage, _React$Component);
+
+	  /**
+	   * Class constructor.
+	   */
+	  function CoursesPage(props) {
+	    _classCallCheck(this, CoursesPage);
+
+	    var _this = _possibleConstructorReturn(this, (CoursesPage.__proto__ || Object.getPrototypeOf(CoursesPage)).call(this, props));
+
+	    _this.state = {
+	      secretData: ''
+	    };
+	    return _this;
+	  }
+
+	  /**
+	   * This method will be executed after initial rendering.
+	   */
+
+
+	  _createClass(CoursesPage, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      var xhr = new XMLHttpRequest();
+	      xhr.open('get', '/api/courses');
+	      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	      // set the authorization HTTP header
+	      xhr.setRequestHeader('Authorization', 'bearer ' + _Auth2.default.getToken());
+	      xhr.responseType = 'json';
+	      xhr.addEventListener('load', function () {
+	        if (xhr.status === 200) {
+	          _this2.setState({
+	            secretData: xhr.response.message
+	          });
+	        }
+	      });
+	      xhr.send();
+	    }
+
+	    /**
+	     * Render the component.
+	     */
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_Courses2.default, { secretData: this.state.secretData });
+	    }
+	  }]);
+
+	  return CoursesPage;
+	}(_react2.default.Component);
+
+	exports.default = CoursesPage;
+
+/***/ }),
+/* 475 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Card = __webpack_require__(400);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Courses = function Courses(_ref) {
+	  var secretData = _ref.secretData;
+	  return _react2.default.createElement(
+	    _Card.Card,
+	    { className: 'container' },
+	    _react2.default.createElement(_Card.CardTitle, {
+	      title: 'Courses',
+	      subtitle: 'courses'
+	    }),
+	    secretData && _react2.default.createElement(
+	      _Card.CardText,
+	      { style: { fontSize: '16px', color: 'green' } },
+	      secretData
+	    )
+	  );
+	};
+
+	Courses.propTypes = {
+	  secretData: _react.PropTypes.string.isRequired
+	};
+
+	exports.default = Courses;
 
 /***/ })
 /******/ ]);

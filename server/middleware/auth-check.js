@@ -23,8 +23,6 @@ module.exports = (req, res, next) => {
 
     // check if a user exists
     return User.findById(userId, (userErr, user) => {
-      console.log(userId);
-      
       if (userErr || !user) {
         return res.status(401).end();
       }

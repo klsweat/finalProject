@@ -3,8 +3,8 @@ import HomePage from './components/HomePage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
-import Auth from './modules/Auth';
 import CoursesPage from './containers/CoursesPage.jsx';
+import Auth from './modules/Auth';
 
 
 const routes = {
@@ -22,7 +22,10 @@ const routes = {
         }
       }
     },
-
+    {
+      path: '/courses',
+      component: CoursesPage
+    },
     {
       path: '/login',
       component: LoginPage
@@ -31,11 +34,6 @@ const routes = {
     {
       path: '/signup',
       component: SignUpPage
-    },
-
-    {
-      path: '/courses',
-      component: CoursesPage
     },
 
     {
