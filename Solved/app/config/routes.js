@@ -10,7 +10,7 @@ const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
     <Route path="favorites" component={Favorites} />
-    <Route path="createcourse" handler={CreateCourse} />
+    <Route path="createcourse" component={CreateCourse} />
     <IndexRoute component={Home} />
     </Route>
   </Router>

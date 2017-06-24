@@ -1,6 +1,7 @@
 var express = require("express");
 
 var quotesController = require("../controllers/quotesController");
+var coursesController = require("../controllers/coursesController");
 
 var router = new express.Router();
 
@@ -12,5 +13,13 @@ router.post("/quotes", quotesController.create);
 router.patch("/quotes/:id", quotesController.update);
 // Delete a specific quote using the id in req.params.id
 router.delete("/quotes/:id", quotesController.destroy);
+
+// Get all courses (or optionally a specific course with an id)
+router.get("/courses/:id?", coursesController.index);
+
+// Create a new course using data passed in req.body
+router.post("/courses", coursesController.create);
+
+
 
 module.exports = router;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Panel from "./common/Panel";
-import API from "../utils/API";
+import API from "./utils/API";
 
 class Favorites extends Component {
   constructor() {

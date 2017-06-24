@@ -14,6 +14,9 @@ const Navbar = () => (
         <li className={location.pathname === "/favorites" && "active"}>
           <Link to="/favorites">Favorites</Link>
         </li>
+        <li className={location.pathname === "/createcourse"}>
+          <Link to="/createcourse">Create Course</Link>
+        </li>
       </ul>
     </div>
   </nav>

@@ -1,55 +1,40 @@
 import React, { Component } from "react";
-
-import Preview from './src/preview'
-import Toolbar from './src/toolbar'
-import ElementActions from './src/actions/ElementActions';
-import ReactFormGenerator from './src/form';
+import SimpleApp from './common/SimpleApp';
+import API from "./utils/API";
 
 class CreateCourse extends Component {
   constructor() {
     super();
     this.state = {
-      quotes: []
+      content: []
     };
-    // Binding getQuotes to this component since we'll be passing this method to 
-    // other components to use
-    this.getQuotes = this.getQuotes.bind(this);
+    
   }
-  // Getting all quotes once the component has mounted
+
   componentDidMount() {
-    this.getQuotes();
+    this.getCourses();
   }
-  getQuotes() {
-    API.getQuotes().then((res) => {
-      const favoriteQuotes = res.data.filter(quote => quote.favorited);
-      this.setState({ quotes: favoriteQuotes });
-    });
+  
+  getCourses() {
+    API.getCourses().then((res) => {
+      this.setState({
+        content: res.data
+      });
+    })
   }
-  // A helper method for rendering one panel for each quote
-  renderQuotes() {
-    return this.state.quotes.map(quote => (
-      <Panel
-        quote={quote}
-        key={quote._id}
-        getQuotes={this.getQuotes}
-      />
-    ));
-  }
-  render() {
-    return (
-      <div>
-        <div className="jumbotron text-center">
-          <h1>Your Favorite Quotes</h1>
-          <p>Your very best quotes.</p>
-        </div>
-        <div className="container">
-        <div className="row">
-          {this.renderQuotes()}
-        </div>
-        </div>
-      </div>
-    );
-  }
+ 
+	render(){
+	return (
+    <div>
+      
+      <SimpleApp content={content} />
+    </div>
+  );	
+	
+}
 }
 
+
 export default CreateCourse;
+
+

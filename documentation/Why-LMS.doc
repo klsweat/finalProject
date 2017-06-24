@@ -1,0 +1,3 @@
+Learning Management System (LMS) for Daniel Defense
+1. A lot of training takes place at Daniel Defense such as learning how to operate machines that build gun parts. The app will be an online learning app. A place where our training director can create/upload training information to train new employees. The application will have an admin and user. The user will be assigned courses to take and will be responsible for taking quizzes or tests after completing courses. The admin will be able to grade completed courses, create courses (upload videos, PowerPoints, and create forms/quizzes), assign courses, and track completion for each user.
+2. The app will incorporate, bootstrap, react, express, node, mongo.
