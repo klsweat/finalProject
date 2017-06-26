@@ -1,0 +1,112 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  color: #fff; 
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.gold {
+  color: gold;
+}
+
+.quote {
+  padding-top: 20px;
+}
+
+.editor-canvas-container {
+	margin: 10px 15px 15px 220px !important;
+}
+
+.editor-tools-container {
+    position: relative !important;
+    left: 15px;
+    top: 1px !important;
+    width: 190px;
+    background-color: #15d4be !important;
+    padding: 5px 0px;
+    float: left;
+}
+
+@media (min-width: 768px){
+.col-md-12 {
+    flex: 0 0 75%; 
+    max-width: 100% !important; 
+}
+}
+
+@media (min-width: 768px){
+.col-md-4 {
+    flex: 0 0 25%;
+    max-width: 100% !important;
+}
+}
+.el-box-header {
+    background-color: #15d4be !important;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 15px;
+    padding: 5px 15px;
+    cursor: move;
+}
+
+.row:hover .rowhandle.el-box-header,
+.col-editor-style:hover .colhandle.el-box-header,
+.element:hover .elementhandle.el-box-header
+{
+	background-color: #10a694 !important;
+}
+
+.el-editor-content {
+    color: #333; 
+}
+
+.row-editor-style{
+    background: #fff;
+    border: 1px solid #e6e6e6;
+}
+
+.row-editor-style {
+    background-color: #fff !important;
+    margin: 10px 0px;
+    border: 1px solid #e6e6e6;
+    padding-bottom: 15px;
+}
+
+.handle .fa {
+    margin-left: 8px;
+    color: #333 !important;
+}
+
+.toolbox-element {
+    background-color: #fff !important;
+    padding: 5px 15px;
+    margin: 3px 10px;
+    cursor: move;
+    color: #333;
+}
+
+.toolbox-hl {
+    margin: 3px 15px 10px 15px;
+    xcolor: white;
+    font-weight: bold;
+    color:#333;
+}
+
+.editor-tools-container .toolbox-element-col {
+    width: 170px !important;
+    padding: 5px 15px !important;
+    margin: 0px 10px 3px 10px !important;
+    background: #fff;
+    color: #333;
+}
