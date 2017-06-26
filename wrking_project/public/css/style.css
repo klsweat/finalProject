@@ -25,19 +25,7 @@ body {
   padding-top: 20px;
 }
 
-.editor-canvas-container {
-	margin: 10px 15px 15px 220px !important;
-}
 
-.editor-tools-container {
-    position: relative !important;
-    left: 15px;
-    top: 1px !important;
-    width: 190px;
-    background-color: #15d4be !important;
-    padding: 5px 0px;
-    float: left;
-}
 
 @media (min-width: 768px){
 .col-md-12 {
