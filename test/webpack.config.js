@@ -23,8 +23,9 @@ module.exports = {
   plugins: plugins,
   resolve: {
     alias: {
-        './conf' : __dirname + '/conf-' + process.env.NODE_ENV
-    }
+        './conf' : __dirname + '/conf-' + process.env.NODE_ENV,
+
+    },
   },
   module: {
     /*preLoaders: [
@@ -32,6 +33,9 @@ module.exports = {
     ],*/
     
     loaders:[
+
+      { test: /\.css$/,  loader: "style-loader!css-loader"  },
+
       //{ test: /jquery\.js$/, loader: 'expose?$' },
       //{ test: /jquery\.js$/, loader: 'expose?jQuery' },
       {
