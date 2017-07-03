@@ -1,35 +1,15 @@
-import React, { Component } from "react"
+import React from 'react'
 import { Link } from 'react-router'
 
-class Navbar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      title: "Bar is closed...",
-      sidebarVisible: false
-    }
-  }
-  
-  toggle = () => {
-    this.setState({ sidebarVisible: !this.state.sidebarVisible })
-  };
-
-  render() {
-    return (
-<div>
-            <Sidebar className='sidebar-left' visible={this.state.sidebarVisible} toggle={this.toggle}/>
- 
-         <header className='navbar-fixed'>
-
-          <nav className='navbar navbar-toggleable-md navbar-inverse bg-faded'>
-           {/* <span className='navbar-brand imglogo'></span>*/}
-            <span className='fa fa-bars btn btn-link icon-header mr-sm-2 pull-right' onClick={this.toggle}></span>
-            <div className='d-flex mr-auto'></div>
-                <ul className='navbar-nav content-right'>
-                  <li className='align-self-center hidden-md-down'>
-                    <span href='https://themeforest.net/item/adminux-dashboard-responsive-html/19761213?ref=Maxartkiller' className='btn btn-sm btn-primary mr-2'><span className='fa fa-shopping-basket '></span>  </span>
-                  </li>
-                  <li className='v-devider'></li>
+const HeaderInfo = () => (
+  <span>
+    <div className='d-flex mr-auto'>
+    </div>
+    <ul className='navbar-nav content-right'>
+      <li className='align-self-center hidden-md-down'>
+        <span href='https://themeforest.net/item/adminux-dashboard-responsive-html/19761213?ref=Maxartkiller' className='btn btn-sm btn-primary mr-2'><span className='fa fa-shopping-basket '></span>      Buy Now!</span>
+      </li>
+      <li className='v-devider'></li>
       <li className='nav-item active'>
         <button
           className='btn btn-link icon-header '
@@ -59,7 +39,7 @@ class Navbar extends Component {
           </div>
         </div>
       </li>
-       <li className='nav-item'>
+      <li className='nav-item'>
         <button
           className='btn btn-link icon-header badgeCircle'
           data-toggle='dropdown'
@@ -72,7 +52,7 @@ class Navbar extends Component {
             <div className='media'>
               <span className='alert-block bg-primary'><span className='fa fa-bullhorn'></span></span>
               <div className='media-body'>
-                <b>User Name</b> updated post of <b>Astha Smith</b>. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                <b>Max Smith</b> updated post of <b>Astha Smith</b>. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
               </div>
             </div>
             <div className='media'>
@@ -100,7 +80,7 @@ class Navbar extends Component {
           </div>
         </div>
       </li>
-            <li className='nav-item hidden-xs-down'>
+      <li className='nav-item hidden-xs-down'>
         <button
           className='btn btn-link icon-header '
           data-toggle='dropdown'
@@ -150,54 +130,7 @@ class Navbar extends Component {
         </li>
       </ul>
     </div>
-          </nav>
-        </header>
-        </div>
-    )
-  }
-}
+</span>
+)
 
-const Sidebar = props =>
-<div className={`sidebar-left ${(props.visible) && 'shown'}`}>
-    <div className="user-menu-items">
-    <div className="list-unstyled btn-group">
-      <button className="media btn btn-link dropdown-toggle"   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-        <span className="message_userpic"><img className="d-flex" src="../img/user-header.png" alt="Generic user image"/></span> 
-        <span className="media-body">
-           <span className="mt-0 mb-1">Maxartkiller</span> <small>New Jersey, UK.</small> </span> </button>
-      <div className="dropdown-menu"> <span className="dropdown-item" href="customerprofile.html">Profile</span> <span className="dropdown-item" href="inbox.html">Mailbox</span> <span className="dropdown-item" href="#">Application</span> <span className="dropdown-item" href="#">Analytics Report</span> <span className="dropdown-item" href="#">Preferances</span>
-        <div className="dropdown-divider"></div>
-        <span className="dropdown-item" href="#">Setting</span> </div>
-    </div>
-  </div>
-  <br />
-  <ul className="nav flex-column in" id="side-menu">
-    <li className="title-nav">MENU</li>
-    <li className={location.pathname === "/" && "active nav-item"}>
-      <Link className="menudropdown nav-link" to="/">Dashboard
-      <i className="fa fa-dashboard"></i>
-      </Link> 
-    </li>
-    <li className={location.pathname === "/Gradebook" && " nav-item"}>
-      <Link className="menudropdown nav-link" to="/gradebook">Gradebook
-      <i className="fa fa-check-square-o"></i>
-      </Link> 
-    </li>
-    <li className={location.pathname === "/courses" && " nav-item"}>
-      <Link className="menudropdown nav-link" to="/courses">Courses
-      <i className="fa fa-globe"></i>
-      </Link> 
-    </li>
-    <li className={location.pathname === "/createcourse" && " nav-item"}>
-      <Link className="menudropdown nav-link" to="/createcourse">CreateCourse
-      <i className="fa fa-road"></i>
-      </Link> 
-    </li>
-
-
-  </ul>
-
-</div>
-
-
-export default Navbar
+export default HeaderInfo

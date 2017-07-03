@@ -17,6 +17,7 @@ var routes = require("./routes/routes");
 
 mongoose.Promise = bluebird;
 var app = express();
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
