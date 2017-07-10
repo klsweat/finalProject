@@ -24,6 +24,10 @@ router.post("/courses", coursesController.create);
 // Get all lessons (or optionally a specific course with an id)
 router.get("/lessons/:id?", coursesController.index);
 
+
+// Get all lessons (or optionally a specific course with an id)
+router.get("/lessons/:id?", coursesController.index);
+
 // Create a new lessons using data passed in req.body
 router.post("/lessons", lessonsController.create);
 

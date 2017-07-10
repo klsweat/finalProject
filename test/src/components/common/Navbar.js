@@ -22,12 +22,12 @@ class Navbar extends Component {
          <header className='navbar-fixed'>
 
           <nav className='navbar navbar-toggleable-md navbar-inverse bg-faded'>
-            <span className='navbar-brand imglogo'></span>
+           {/*<span className='navbar-brand imglogo'></span>*/} 
             <span className='fa fa-bars btn btn-link icon-header mr-sm-2 pull-right' onClick={this.toggle}></span>
             <div className='d-flex mr-auto'></div>
                 <ul className='navbar-nav content-right'>
                   <li className='align-self-center hidden-md-down'>
-                    <span href='https://themeforest.net/item/adminux-dashboard-responsive-html/19761213?ref=Maxartkiller' className='btn btn-sm btn-primary mr-2'><span className='fa fa-shopping-basket '></span>      Buy Now!</span>
+                    <span href='https://themeforest.net/item/adminux-dashboard-responsive-html/19761213?ref=Maxartkiller' className='btn btn-sm btn-primary mr-2'><span className='fa '></span>    </span>
                   </li>
                   <li className='v-devider'></li>
       <li className='nav-item active'>
@@ -72,7 +72,7 @@ class Navbar extends Component {
             <div className='media'>
               <span className='alert-block bg-primary'><span className='fa fa-bullhorn'></span></span>
               <div className='media-body'>
-                <b>Max Smith</b> updated post of <b>Astha Smith</b>. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+                <b>User</b> updated post of <b>Astha Smith</b>. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
               </div>
             </div>
             <div className='media'>
