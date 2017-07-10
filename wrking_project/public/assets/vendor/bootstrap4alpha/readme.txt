@@ -1,1 +1,0 @@
-For the template we have changed variables for bootstrap css for easy to use and less css over writting. Recommended to not to change or replace directly files from this folder.
