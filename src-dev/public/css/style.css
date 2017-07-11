@@ -1,7 +1,11 @@
 .d-modal-content{
-    color: #333;
+    color: #fff;
 }
 
+
+.d-modal-bg{
+    background-color: rgba(0,0,0,0.85) !important;
+}
 .custom-file-control {
         color: #333 !important;
 
@@ -1029,16 +1033,12 @@ body {
 
 @media (min-width: 768px){
 .col-md-4 {
-    flex: 0 0 33.333333333%;
-    max-width: 33.333333333%;
+    max-width: 31%;
 }
 }
 
 @media (min-width: 768px){
-.col-md-3 {
-    flex: 0 0 18.75%;
-    max-width: 25%;
-}
+
 }
 
 @media (min-width: 768px){

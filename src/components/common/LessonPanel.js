@@ -38,21 +38,24 @@ class LessonPanel extends Component {
     }
   }
 
+
+
+
   handleButtonClick(e){
     var lessonClicked = e.target.id;
-    console.log("lessonclicked", lessonClicked);
+    //console.log("lessonclicked", lessonClicked);
     
     API.getLessonContent(lessonClicked).then((res) => {
       const lessonSelected = res.data.filter(lesson => lesson.course_name)
       this.setState({ lessonSelected: lessonSelected})
      
-      console.log("res.data");
-      console.log(res.data);
+      //console.log("res.data");
+     // console.log(res.data);
      
       var content = this.state.lessonSelected[0].body;
       this.props.handleLessonClick(content)
 
-      console.log("content", content);
+      //console.log("content", content);
 
     })
    

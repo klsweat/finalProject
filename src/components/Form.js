@@ -2,38 +2,43 @@ import React from 'react'
 import API from './utils/API'
 import { bindAll } from 'lodash'
 import $ from 'jquery'
+import { Editor } from 'react-draft-wysiwyg';
 
 const Fields = {}
 
 Fields['TextArea'] = ({ field, value, handleChange }) => <div>
-                                                           <strong>{field.hl}</strong>
-                                                           <br />
-                                                           <textarea
-                                                             className='form-control'
-                                                             style={{ height: '260px' }}
-                                                             id={field.slug}
-                                                             value={value}
-                                                             onChange={handleChange} />
-                                                         </div>
+      <strong>{field.hl}</strong>
+      <br />
+      <Editor
+        toolbarClassName="toolbarClassName"
+        wrapperClassName="wrapperClassName"
+        editorClassName="editorClassName"
+        className='form-control'
+        id={field.slug}
+        value={value}
+        onChange={handleChange}
+      />
+
+    </div>
 
 Fields['Input'] = ({ field, value, handleChange }) => <div>
-                                                        <strong>{field.hl}</strong>
-                                                        <input
-                                                          className='form-control'
-                                                          id={field.slug}
-                                                          value={value}
-                                                          onChange={handleChange} />
-                                                      </div>
+  <strong>{field.hl}</strong>
+  <input
+    className='form-control'
+    id={field.slug}
+    value={value}
+    onChange={handleChange} />
+</div>
 
 Fields['File'] = ({ field, value, handleChange }) => <div>
-                                                       <strong>{field.hl}</strong>
-                                                       <input
-                                                         className='form-control'
-                                                         type='file'
-                                                         id={field.slug}
-                                                         value={value}
-                                                         onChange={handleChange} />
-                                                     </div>
+  <strong>{field.hl}</strong>
+  <input
+    className='form-control'
+    type='file'
+    id={field.slug}
+    value={value}
+    onChange={handleChange} />
+</div>
 
 export default class Form extends React.Component {
   constructor (props) {

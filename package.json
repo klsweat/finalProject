@@ -1,5 +1,5 @@
 {
-  "name": "mytest",
+  "name": "finalproject",
   "version": "0.1.6",
   "main": "./dist/index.js",
   "dependencies": {
@@ -11,6 +11,7 @@
     "cloudinary": "^1.9.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
+    "draft-js": "^0.10.1",
     "express-session": "^1.15.3",
     "file-loader": "^0.11.2",
     "flash": "^1.1.0",
@@ -31,6 +32,7 @@
     "react": "^15.3.0",
     "react-content-builder": "^0.1.6",
     "react-dom": "^15.3.0",
+    "react-draft-wysiwyg": "^1.10.4",
     "react-dragula": "^1.1.16",
     "react-file-upload": "0.0.4",
     "react-redux": "^5.0.5",

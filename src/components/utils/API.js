@@ -53,22 +53,27 @@ const API = {
     }
   },
   updateCourse: function (text) {
-    console.log(text.content)
+    //console.log(text.content)
     const _id = text.course_id
-    console.log(_id)
+    //console.log(_id)
     const body = text.content
     return axios
       .patch(`/api/courses/${_id}`, {
         body: JSON.stringify(body)
       })
       .then(function (response) {
-        console.log('saved successfully')
+        //console.log('saved successfully')
       })
   },
 
   // get courses or default course
-  getCourses: function () {
-    return axios.get('/api/courses')
+  getCourses: function (id) {
+    return axios.get(`/api/courses/${id}`)   
+    .then(function (response) {
+        //   console.log(parentCourseId)
+       console.log(response)
+        return response
+      })
   },
 
   // get courses or default course
@@ -84,12 +89,12 @@ const API = {
     //  const {_id} = lesson
     //  return axios.get(`/api/courses/${_id}`)
     // return axios.get(`/api/lessons/${parentCourseId}`)
-    console.log(parentCourseId);
+    //console.log(parentCourseId);
     return axios.get(`/api/lessons/${parentCourseId}`)
 
       .then(function (response) {
         //   console.log(parentCourseId)
-       console.log(response)
+       //console.log(response)
         return response
       })
   },
