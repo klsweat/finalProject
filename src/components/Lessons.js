@@ -48,26 +48,26 @@ class Lessons extends Component {
     );
     API.getLessons(this.props.getThisCourseId.icourseId).then(res => {
       const lessonList = res.data.filter(lesson => lesson.course_name);
-      this.setState({ lessons: lessonList });
+      //this.setState({ lessons: lessonList });
     });
 
     API.getCourses(this.props.getThisCourseId.icourseId).then(res => {
-      const parentCourseContent = res.data.filter(pcc => {
-        console.log(pcc.is_parent);
-        if (pcc.is_parent) {
-          console.log(pcc.body);
-          this.setState({ content: JSON.parse(pcc.body) });
-        }
-      });
+    const lessonList = res.data.filter(lesson => {
+      if(lesson._id == lesson)
+    });
+    console.log(lessonList);
+    this.setState({ lessons: lessonList });
+
+
     });
   }
 
   handleLessonClick(body) {
     this.state.content = [];
-    console.log("lesson clicked");
-    console.log(body);
+    //console.log("lesson clicked");
+    //console.log(body);
     this.setState({ content: JSON.parse(body) });
-    console.log(this.state.content);
+    //console.log(this.state.content);
   }
 
   // Notice the shorthand method syntax. Otherwise lifecycle methods are exactly the same

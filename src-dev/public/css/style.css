@@ -1,8 +1,24 @@
 .d-modal-content{
     color: #fff;
+    width: 41% !important;
+ 
 }
 
+.d-modal-content div {
+    margin-bottom: 4px !important;
+}
 
+.rdw-editor-toolbar {
+    padding: 6px 0px 0 !important;
+}
+
+.DraftEditor-editorContainer {
+    background-color: #fff !important;
+    color: #000 !important;
+    border-radius: 4px;
+    border: 2px #ffbe34 solid !important;
+    padding: 0px 5px 0px 5px; 
+}
 .d-modal-bg{
     background-color: rgba(0,0,0,0.85) !important;
 }

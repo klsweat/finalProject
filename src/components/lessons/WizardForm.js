@@ -19,23 +19,21 @@ class WizardForm extends Component {
 
   }
   
-
-  
   componentDidMount() {
       //console.log("this is wizard.js length");
     this.setState({
       content: JSON.parse(this.props.content)
     });
-      console.log(this.props.content);
+      //console.log(this.props.content);
   }
 
    // Notice the shorthand method syntax. Otherwise lifecycle methods are exactly the same
 componentDidUpdate(prevProps, prevState) {
   console.log(prevState)
     if (this.state.content !== prevProps) {
-      console.log("Updated");
-      console.log("Previous state:", prevState);
-      console.log("Current state:", this.state);
+      //console.log("Updated");
+      //console.log("Previous state:", prevState);
+      //console.log("Current state:", this.state);
     }
   }
 
@@ -46,12 +44,12 @@ componentDidUpdate(prevProps, prevState) {
     });
 
     let step = this.state.step;
-    console.log(step);
+    //console.log(step);
 
     this.props.getSteps(step)
 
     if(this.state.index == "" ){
-      console.log(this.state.index)
+      //console.log(this.state.index)
       return <TestForms />
     }
   }
@@ -70,7 +68,7 @@ componentDidUpdate(prevProps, prevState) {
             </div>
             <br />
             <div className="row">
-              <div className="col-sm-16 col-md-8 col-lg-12">
+              <div className="col-sm-16 col-md-12 col-lg-12">
                 <div className="form-group">
                   <Content content={this.state.content}/>
                 </div>

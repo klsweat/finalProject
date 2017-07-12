@@ -12,7 +12,9 @@ class Courses extends Component {
       icourseId: '',
       isCourse: true,
       isLesson: false,
-      courseName: ""
+      courseName: "",
+      status: "",
+      date: Date
 
     }
 
@@ -35,15 +37,23 @@ class Courses extends Component {
     })
   }
 
-  setCourse (id, bool, name) {
-   console.log(id, bool, name)
-    this.setState({ isCourse: bool, icourseId: id, courseName: name })
-   console.log(this.state.isCourse)
+  setCourse (id, bool, name, status, date) {
+   console.log(id, bool, name, status, date)
+    this.setState({ isCourse: bool, icourseId: id, courseName: name, status: status, date: date })
+    
+    console.log(this.state.date)
+    API.updateDate(date, id.icourseId).then(res => {
+      console.log(res.data);
+    });
+
   }
 
   // A helper method for rendering one panel for each quote 
   renderCourses () {
        console.log(this.state.isCourse)
+
+    console.log("setcourse")
+    console.log(this.state);
 
     return this.state.courses.map(course => (
       <CoursesPanel
@@ -72,10 +82,11 @@ class Courses extends Component {
           <div className='col-sm-16'>
             <div className='card'>
               <div className='card-header'>
-                <h6 className='card-title'>Select Courses to Begin</h6>
+                <h6 className='card-title'>Select Course to Begin</h6>
               </div>
-              <div className='card-block'>
+              <div className='card-block' style={styles.bg}>
                 <div className='col-md-12'>
+                  
                     {this.renderCourses()}
                  
                 </div>
@@ -95,6 +106,12 @@ class Courses extends Component {
         </div>
       )
     }
+  }
+}
+
+const styles = {
+  bg: {
+    color: "black"
   }
 }
 

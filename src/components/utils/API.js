@@ -53,16 +53,30 @@ const API = {
     }
   },
   updateCourse: function (text) {
-    //console.log(text.content)
+    console.log(text)
     const _id = text.course_id
-    //console.log(_id)
+    console.log(_id)
     const body = text.content
+    const date = text.date
     return axios
       .patch(`/api/courses/${_id}`, {
         body: JSON.stringify(body)
       })
       .then(function (response) {
-        //console.log('saved successfully')
+        console.log('saved successfully')
+        return response; 
+      })
+  },
+
+    updateDate: function (date, id) {
+      console.log(date, id)
+    return axios
+      .patch(`/api/courses/${id}`, {
+        start_date: date
+      })
+      .then(function (response) {
+        console.log('saved successfully')
+        return response; 
       })
   },
 
@@ -94,7 +108,7 @@ const API = {
 
       .then(function (response) {
         //   console.log(parentCourseId)
-       //console.log(response)
+       console.log(response)
         return response
       })
   },

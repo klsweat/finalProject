@@ -50,6 +50,7 @@ module.exports = {
     },
       req.body
     ).then(function(doc) {
+      console.log(doc);
       res.json(doc);
     }).catch(function(err) {
       res.json(err);

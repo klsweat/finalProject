@@ -4,7 +4,7 @@ module.exports = {
   // This method handles retrieving lessons from the db
   lessons: function (req, res) {
     //console.log(req.params.id)
-    Lesson.find({parent_id: req.params.id})
+    Lesson.find({parent_id: req.params.id, })
       .then(function (doc) {
         res.json(doc)
       }).catch(function (err) {
@@ -18,6 +18,7 @@ module.exports = {
 
     Lesson.find({_id: req.params.id})
       .then(function (doc) {
+        console.log(  res.json(doc));
         res.json(doc)
       }).catch(function (err) {
       res.json(err)
