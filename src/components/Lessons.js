@@ -29,6 +29,7 @@ class Lessons extends Component {
     this.returnContent = this.returnContent.bind(this);
     this.getSteps = this.getSteps.bind(this);
     this.renderWizardForm = this.renderWizardForm.bind(this);
+    this.lessonRefresh = this.lessonRefresh.bind(this);
   }
 
   // Getting all quotes once the component has mounted
@@ -53,11 +54,17 @@ class Lessons extends Component {
 
     API.getCourses(this.props.getThisCourseId.icourseId).then(res => {
     const lessonList = res.data.filter(lesson => {
-      if(lesson._id == lesson)
+      //console.log("lessons id: " + lesson._id);
+      //console.log(lesson.parent_id);
+      //console.log("this state course id", this.state.courseID)  
+       if((this.state.courseID == lesson.parent_id) || (this.state.courseID == lesson._id)){
+        //console.log(lesson);
+        this.setState({ lessons: this.state.lessons.concat(lesson) });
+      }; 
     });
-    console.log(lessonList);
-    this.setState({ lessons: lessonList });
 
+        let form = [this.state.courseID];
+        this.setState({ lessons: this.state.lessons.concat(form) });
 
     });
   }
@@ -84,6 +91,11 @@ class Lessons extends Component {
     this.setState({ steps: this.state.steps + e });
   }
 
+  lessonRefresh(e) {
+    console.log(e)
+    //props.refresh(e);
+  }
+
   renderLessonsPanel() {
     // A helper method for rendering one panel for each quote
     return this.state.lessons.map(lesson =>
@@ -100,6 +112,9 @@ class Lessons extends Component {
   }
 
   renderWizardForm() {
+    let length = this.state.lessons.length;
+        let lastIndex = this.state.lessons.slice(-1);
+        let newArray = lastIndex[0];
     return this.state.lessons.map((lesson, index) => {
     let steps = index + 1;
       if (steps == this.state.steps) {
@@ -110,6 +125,9 @@ class Lessons extends Component {
             index={index}
             getSteps={this.getSteps}
             content={lesson.body}
+            refresh={this.lessonRefresh}
+            length={length}
+            lastIndex={newArray}
           />
   
         );

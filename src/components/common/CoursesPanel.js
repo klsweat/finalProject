@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Editor, Content } from "react-content-builder";
 import Moment from "react-moment";
+import { Link } from 'react-router'
 
 //import { Button } from 'reactstrap';
 
@@ -19,7 +20,10 @@ class CoursesPanel extends Component {
     // Binding getQuotes to this component since we'll be passing this method to
     // other components to use
     this.handleButtonClick = this.handleButtonClick.bind(this);
+
+
   }
+
 
   handleButtonClick(e) {
     //console.log("CLICK");
@@ -43,6 +47,8 @@ class CoursesPanel extends Component {
     //this.setState({ isCourse: false });
     //console.log(this.state.isCourse);
     //this.props.update(e.target.id);
+
+
   }
 
   render() {
@@ -50,7 +56,7 @@ class CoursesPanel extends Component {
       <div className="col-md-5 col-sm-6">
 
         <div className="card text-center text-white">
-          <div className="p-2 mb-2 gradient"> {this.props.course.status} </div>
+          <div className="p-2 mb-2 blue-gradient"> {this.props.course.status} </div>
           <div className="card-block">
             <h4 className="card-title text-white">
               {this.props.course.course_name}
@@ -60,6 +66,7 @@ class CoursesPanel extends Component {
               content.
             </p>
             <center>
+              <Link to="/lessons">
               <button
                 onClick={this.handleButtonClick}
                 className="btn btn-outline-white"
@@ -69,6 +76,7 @@ class CoursesPanel extends Component {
               >
                 Begin
               </button>
+              </Link>
             </center>
           </div>
           <div className="card-footer "> 2 days ago </div>

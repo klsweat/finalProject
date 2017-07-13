@@ -63,7 +63,7 @@ const API = {
         body: JSON.stringify(body)
       })
       .then(function (response) {
-        console.log('saved successfully')
+        //console.log('saved successfully')
         return response; 
       })
   },
@@ -75,7 +75,7 @@ const API = {
         start_date: date
       })
       .then(function (response) {
-        console.log('saved successfully')
+        //console.log('saved successfully')
         return response; 
       })
   },
@@ -85,7 +85,7 @@ const API = {
     return axios.get(`/api/courses/${id}`)   
     .then(function (response) {
         //   console.log(parentCourseId)
-       console.log(response)
+       //console.log(response)
         return response
       })
   },
@@ -108,7 +108,7 @@ const API = {
 
       .then(function (response) {
         //   console.log(parentCourseId)
-       console.log(response)
+      // console.log(response)
         return response
       })
   },
@@ -121,7 +121,7 @@ const API = {
 
       .then(function (response) {
         //   console.log(parentCourseId)
-       console.log(response)
+       //console.log(response)
         return response
       })
   },
@@ -153,9 +153,9 @@ const API = {
   saveFile: function (imageFile) {
     let imageFormData = new FormData();
 
-    console.log("imageFile", imageFile);
-    console.log(imageFile.file.type);
-    console.log(imageFile.file.name)
+    //console.log("imageFile", imageFile);
+    //console.log(imageFile.file.type);
+    //console.log(imageFile.file.name)
     
     return axios
       .post('/api/file', {data: imageFile.imagePreviewUrl, contentType: imageFile.file.type})
@@ -176,6 +176,20 @@ const API = {
       .get('/api/file')
       .then(function (response) {
         console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  },
+
+  // refresh
+  refresh: function () {
+    console.log("i am the courses refresh ajax")
+    return axios
+      .get('/courses/true')
+      .then(function (response) {
+        console.log(response)
+        return response;
       })
       .catch(function (error) {
         console.log(error)

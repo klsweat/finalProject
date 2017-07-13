@@ -45,4 +45,3 @@ let ColList = ({cols, isEditor=false}) => {
 	)
 }
 
-

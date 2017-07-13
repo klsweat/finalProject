@@ -82,11 +82,7 @@ class CreateCourse extends Component {
   }
 
   refresh (e) {
-    console.log(e.target.value)
-    this.setState({
-      emptyCourseId: true
-    })
-    console.log(this.state.emptyCourseId)
+    window.location.reload();
   }
 
   render () {
@@ -100,7 +96,7 @@ class CreateCourse extends Component {
               value="true"
               style={styles.buttonStyle}
               type='button'
-              className={location.pathname === '/createcourse' && 'btn btn-outline-primary'}>
+              className={location.pathname === '/manage/createcourse' && 'btn btn-outline-primary'}>
               <Link to='/createcourse'> Create New Course
               </Link>
             </button>

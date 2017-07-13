@@ -103,11 +103,10 @@ class SimpleApp extends Component {
   }
 
   getCourses(id) {
-	  	console.log("get courses");
+	  console.log("get courses");
 		API.getCourses().then(res => {
 		const courseList = res.data.filter(course => course.course_name);	  
 		this.setState({ courses: courseList });
-
 	});
 
   }

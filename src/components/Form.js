@@ -21,6 +21,25 @@ Fields['TextArea'] = ({ field, value, handleChange }) => <div>
 
     </div>
 
+Fields['Label'] = ({ field, value, handleChange }) => <div>
+  <strong>{field.hl}</strong>
+  <Input
+    className='form-control'
+    id={field.slug}
+    value={value}
+    onChange={handleChange} />
+</div>
+
+Fields['Select'] = ({ field, value, handleChange }) => <div>
+  <strong>{field.hl}</strong>
+  <Select
+    className='form-control'
+    id={field.slug}
+    value={value}
+    onChange={handleChange}/>
+
+</div>
+
 Fields['Input'] = ({ field, value, handleChange }) => <div>
   <strong>{field.hl}</strong>
   <input

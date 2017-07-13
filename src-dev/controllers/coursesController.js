@@ -43,6 +43,11 @@ module.exports = {
       res.json(err);
     });
   },
+
+  // This method handles creating new quotes
+  true: function(req, res) {
+   res.redirect('/courses');
+  },
   // This method handles updating quotes
   update: function(req, res) {
     Course.update({

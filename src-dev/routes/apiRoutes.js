@@ -104,6 +104,13 @@ router.get('/signout', function(req, res){
 // Get all courses (or optionally a specific course with an id)
 router.get("/courses/:id?", coursesController.index);
 
+// Get all courses (or optionally a specific course with an id)
+router.get("/courses/true", coursesController.true);
+
+// Get all courses (or optionally a specific course with an id)
+router.get("/courses/:id?", coursesController.index);
+
+
 // Create a new course using data passed in req.body
 router.post("/courses", coursesController.create);
 

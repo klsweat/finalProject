@@ -11,6 +11,8 @@ export default ()=>(
 		{	
 			Object.keys(ElementConfig).map(function (type) {
 				let Element = ElementConfig[type];
+
+				
 				return (
 					<div key={type} className="toolbox-element elementhandle" data-data={JSON.stringify({type:type})}>
 						{Element.name}
