@@ -10,8 +10,6 @@ import Login from "../components/login/login";
 import SignUp from "../components/login/SignUp";
 import QuizFrame from "../components/quizzes/QuizFrame";
 
-
-
 //Employee Components
 import Lessons from "../components/Lessons";
 import Courses from "../components/Courses";
@@ -23,7 +21,6 @@ import AdminDashBorad from "../components/AdminDashBorad";
 import ACourses from "../components/ACourses";
 import AGradebook from "../components/AGradebook";
 
-import FormContainer from "../containers/builder/FormContainer";
 
 
 
@@ -31,7 +28,7 @@ import FormContainer from "../containers/builder/FormContainer";
 const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
-       <IndexRoute components={EDashboard} />
+       <IndexRoute components={Home} />
       
       <Route component={AdminDashBorad} path="/dashboard" />
       <Route component={Courses} path="/courses" />
@@ -39,11 +36,11 @@ const routes = (
       <Route component={AGradebook} path="/gradebook" />
       <Route component={Courses} path="/lessons" />
       <Route path="signup" component={SignUp} />
+      <Route path="login" component={Login} />
 
      <Route component={QuizFrame} path="/create_quiz" />
-     <Route component={FormContainer} path="/FormContainer" />
 
-      <Route component={CreateCourse} path="/manage/createcourse" />
+      <Route component={CreateCourse} path="/createcourse" />
       <Route component={AdminDashBorad} path="/manage/adminDashboard" />
       <Route component={AGradebook} path="/manage/adminGradebook" />
     </Route>

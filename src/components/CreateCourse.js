@@ -96,9 +96,8 @@ class CreateCourse extends Component {
               value="true"
               style={styles.buttonStyle}
               type='button'
-              className={location.pathname === '/manage/createcourse' && 'btn btn-outline-primary'}>
-              <Link to='/createcourse'> Create New Course
-              </Link>
+              className={location.pathname === '/createcourse' && 'btn btn-outline-primary'}>
+              Add Training Course
             </button>
             <button type='button' className='btn btn-outline-secondary'>
               Edit Course

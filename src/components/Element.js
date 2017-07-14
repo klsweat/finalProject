@@ -30,7 +30,7 @@ export default class Element extends React.Component {
 		if (this.props.isEditor){
 			return(
 				<div id={rid} className="element" data-data={JSON.stringify(this.state)}>
-					<div className="elementhandle el-box-header">					
+					<div className="elementhandle el-box-header">	
 						<Handle clazz="elementhandle" rid={rid} >
 							<Form fields={ElC.fields} values={this.state.params} save={this.save.bind(this)} />
 						</Handle>

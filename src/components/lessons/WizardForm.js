@@ -3,8 +3,9 @@ import API from "../utils/API";
 import { Link } from "react-router";
 import ReactDOM from "react-dom";
 import { Editor, Content } from "../../index";
+import EndOfCourse from "../quizzes/EndOfCourse";
 
-class WizardForm extends Component {
+class CourseQuiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,13 +37,44 @@ class WizardForm extends Component {
 
   handleQuiz() {
     console.log("handling quiz");
-    console.log(this.props.length)
+    console.log(this.props.length);
     let length = this.props.length - 1;
-    console.log(length)
+    console.log(length);
     if (this.props.index < length) {
-     return <span><Content content={this.state.content} /></span>;
+      return <span><Content content={this.state.content} /></span>;
     } else {
-      <p>this is quiz</p>
+      return (
+        <div>
+          <EndOfCourse />
+          this.nextButton();
+        </div>
+      );
+    }
+  }
+
+  nextButton() {
+     let length = this.props.length - 1;
+    console.log(length);
+    if (this.props.index < length) {
+    <button
+      className="btn btn-primary nextBtn btn-lg pull-right"
+      type="button"
+      id={this.state.index}
+      onClick={this.handleButtonClick}
+    >
+      Next
+    </button>
+    } else {
+       <button
+      className="btn btn-primary nextBtn btn-lg pull-right"
+      type="button"
+      id={this.state.index}
+      value={"form_" + this.props.lesson._id}
+      onClick={this.handleSubmit}
+    >
+      Next
+    </button>
+
     }
   }
 
@@ -88,14 +120,7 @@ class WizardForm extends Component {
             </div>
             <div className="wizard-footer">
               <div className="col-sm-16 ">
-                <button
-                  className="btn btn-primary nextBtn btn-lg pull-right"
-                  type="button"
-                  id={this.state.index}
-                  onClick={this.handleButtonClick}
-                >
-                  Next
-                </button>
+                {this.nextButton()}
               </div>
             </div>
           </div>
@@ -106,4 +131,4 @@ class WizardForm extends Component {
   }
 }
 
-export default WizardForm;
+export default CourseQuiz;

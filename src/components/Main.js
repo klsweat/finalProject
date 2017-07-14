@@ -3,7 +3,6 @@ import Navbar from './common/Navbar'
 import Footer from './common/Footer'
 import SidebarRight from './common/SidebarRight'
 
-
 const Main = props => (
   <div>
     <Navbar />
@@ -11,10 +10,11 @@ const Main = props => (
       <div className='container'>
         {props.children}
       </div>
-    <Footer />
     </div>
 
   </div>
 )
 
-export default Main
+
+     export default Main
+

@@ -11,9 +11,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var webpack = require("webpack");
 
 mongoose.Promise = bluebird;
+
+
 var app = express();
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -23,6 +28,8 @@ app.use('/js', express.static('../dist-dev'));
 app.use('/css', express.static('../css'));
 
 app.use("/", routes);
+
+
 
 // passport config
 var User = require('./models/user');

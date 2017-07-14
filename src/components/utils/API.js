@@ -2,17 +2,17 @@ import axios from 'axios'
 
 const API = {
 
-  signIn: function() {
-    return axios.post("/api/login");
+  signIn: function(user) {
+    return axios.post("/api/login", {user});
   },
-  signUp: function() {
-    return axios.post("/api/signup");
+  signUp: function(user) {
+    return axios.post("/api/signup", user);
   },
-  signUP: function() {
-    return axios.get("/api/signup");
+  signUP: function(user) {
+    return axios.get("/api/signup", user);
   },
-  signOut: function() {
-    return axios.post("/api/signout");
+  signOut: function(user) {
+    return axios.post("/api/signout", user);
   },
   // Retrieves all quotes from the db
   getQuotes: function () {

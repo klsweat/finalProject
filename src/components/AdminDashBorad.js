@@ -105,84 +105,8 @@ class AdminDashBorad extends Component {
           </div>
       </div>
     </div>
-    <div className="row">
-      <div className="col-md-8 col-lg-8 col-xl-4">
-        <div className="activity-block">
-          <div className="media">
-            <div className="media-body">
-              <h5>$ <span className="spincreament">72548</span></h5>
-              <p>Total Profit</p>
-            </div>
-            <i className="fa fa-cubes"></i> </div>
-          <br />
-          <div className="media">
-            <div className="media-body"><span className="progress-heading">Monthly progress</span></div>
-            <span><span className="dynamicsparkline">Loading..</span> </span> </div>
-          <div className="row">
-            <div className="progress ">
-              <div className="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style={seventy}><span className="trackerball"></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-8 col-lg-8 col-xl-4">
-        <div className="activity-block">
-          <div className="media">
-            <div className="media-body">
-              <h5><span className="spincreament">72548</span><span className="badge badge-danger ml-2 "><i className="fa fa-caret-down"></i></span></h5>
-              <p>Active Users</p>
-            </div>
-            <i className="fa fa-users"></i> </div>
-          <br />
-          <div className="media">
-            <div className="media-body"><span className="progress-heading">Monthly progress</span></div>
-            <span><span className="dynamicsparkline">Loading..</span> </span> </div>
-          <div className="row">
-            <div className="progress ">
-              <div className="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style={sixty}><span className="trackerball"></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-8 col-lg-8 col-xl-4">
-        <div className="activity-block">
-          <div className="media">
-            <div className="media-body">
-              <h5><span className="spincreament">2548</span><span className="badge badge-success ml-2 "><i className="fa fa-caret-up"></i></span></h5>
-              <p>New Orders</p>
-            </div>
-            <i className="fa fa-cart-arrow-down"></i> </div>
-          <br />
-          <div className="media">
-            <div className="media-body"><span className="progress-heading">Monthly progress</span></div>
-            <span><span className="dynamicsparkline">Loading..</span> </span> </div>
-          <div className="row">
-            <div className="progress ">
-              <div className="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style={fortyfive}><span className="trackerball"></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-md-8 col-lg-8 col-xl-4">
-        <div className="activity-block">
-          <div className="media">
-            <div className="media-body">
-              <h5><span className="spincreament">1548</span></h5>
-              <p>New Comments</p>
-            </div>
-            <i className="fa fa-comments"></i> </div>
-          <br />
-          <div className="media">
-            <div className="media-body"><span className="progress-heading">Monthly progress</span></div>
-            <span><span className="dynamicsparkline">Loading..</span> </span> </div>
-          <div className="row">
-            <div className="progress ">
-              <div className="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style={eighty}><span className="trackerball"></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+    
 
 </div>
 

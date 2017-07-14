@@ -11,6 +11,7 @@ var bCrypt = require('bcrypt-nodejs');
 var coursesController = require("../controllers/coursesController");
 var lessonsController = require("../controllers/lessonsController");
 var fileController = require("../controllers/fileController");
+var userController = require("../controllers/userController");
 
 
 var router = new express.Router();
@@ -23,13 +24,11 @@ router.use(require('express-session')({ secret: 'keyboard cat', resave: false, s
 router.use(passport.initialize());
 router.use(passport.session());
 
-
-
-passport.use('login', new LocalStrategy(function(username, pass, cb){
-    var hashedPass = bCrypt.hashSync(pass)
+passport.use(new LocalStrategy({usernameField: "email", passwordField:"password"}, function(email, password, cb){
+    var hashedPass = bCrypt.hashSync(password)
     db.findOne({
         where: {
-            email: username
+            email: email
         }
         }).then(function(user, err){
             if (err) { 
@@ -38,7 +37,7 @@ passport.use('login', new LocalStrategy(function(username, pass, cb){
             if (!user) { 
                 return cb(null, false); 
             }
-            if (!bCrypt.compareSync(pass, user.password)){ 
+            if (!bCrypt.compareSync(password, user.password)){ 
                 return cb(null, false); 
             }
             return cb(null, user);
@@ -46,18 +45,21 @@ passport.use('login', new LocalStrategy(function(username, pass, cb){
 }));
 
 passport.serializeUser(function(user, cb) {
-    cb(null, user.id);
+    cb(null, user._id);
+    console.log("serializeUser")
 });
 
 passport.deserializeUser(function(id, cb) {
-    db.findById(id).then(function (user) {
+    db.findById(_id).then(function (user) {
         cb(null, user);
+        console.log("findById", user)
+
     });
 });
 
 passport.use('login', function(req, res, next){
     if(req.user){
-        res.locals.user = req.user.username
+        res.locals.user = req.user.email
     }
     next()
 });
@@ -76,7 +78,7 @@ router.post("/signup", function(req, res, next){
             password: bCrypt.hashSync(req.body.password)
         }).then(function(user){
             passport.authenticate("local", {failureRedirect:"/signup", successRedirect: "/signup"})(req, res, next)
-            return (null, user);
+           
         })
         } else {
             res.send("user exists");
@@ -84,20 +86,26 @@ router.post("/signup", function(req, res, next){
     })
 });
 
+
+
+
+
+
 router.get("/signup", function(req, res){
     console.log("Successfully signed up.");
-    res.redirect("/home");
+    res.json(req.user);
 });
 
 router.post("/login", passport.authenticate('local'), function(req, res) {
     console.log("Succesfully signed in.");
-
-    res.redirect("/dashboard");
+    res.json(req.user);
 });
+
+
+router.get("/user/:id?", userController.index);
 
 router.get('/signout', function(req, res){
   req.logout();
-  res.redirect('/');
 });
 
 
@@ -128,22 +136,11 @@ router.get("/lessons/content/:id?", lessonsController.content);
 
 
 
-// Get all quotes (or optionally a specific quote with an id)
-//router.get("/quotes/:id?", quotesController.index);
-// Create a new quote using data passed in req.body
-//router.post("/quotes", quotesController.create);
-// Update an existing quote with a speicified id param, using data in req.body//
-//router.patch("/quotes/:id", quotesController.update);
-// Delete a specific quote using the id in req.params.id
-//router.delete("/quotes/:id", quotesController.destroy);
+
+//router.get("/api/isLogin/:id?", loginController.isLogin);
 
 
 
-// Get all lessons (or optionally a specific course with an id)
-//router.get("/lessons/:id?", coursesController.index);
-
-// Create a new lessons using data passed in req.body
-//router.post("/lessons", lessonsController.create);
 
 
 // Save Image

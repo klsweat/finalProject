@@ -1,7 +1,11 @@
 .d-modal-content{
     color: #fff;
     width: 41% !important;
- 
+}
+
+.nextBtn{
+     padding: 10px;
+    font-size: 21px;
 }
 
 .d-modal-content div {

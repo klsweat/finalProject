@@ -70,7 +70,7 @@
 
 
 .d-modal-bg {
-    background-color: rgba(255,255,255,.95);
+	background-color: rgba(0,0,0,0.85) !important;
     z-index: 9999999;
     overflow-y: auto;
     top: 0;
@@ -89,7 +89,9 @@
     text-align: left;
 }
 .d-modal-content div {
-	margin-bottom: 20px;
+	margin-bottom: 8px;
+
+	font-size: 18px;
 }
 
 

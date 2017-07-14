@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require("path");
 
 var plugins = [];
 
@@ -16,15 +18,21 @@ if (process.env.NODE_ENV === 'production'){
 }
 
 module.exports = {
+  node: {
+    fs: "empty"
+  },
   entry: './src-dev/App.js',
   output: {
-    filename: 'dist-dev/app.js'
+    path: path.join(__dirname, "/dist-dev"),
+    filename: 'app.js'
   },
+  
   plugins: plugins,
   resolve: {
     alias: {
         './conf' : __dirname + '/conf-' + process.env.NODE_ENV
-    }
+    },
+    extensions: ["", ".js", ".jsx", ".css"]
   },
   module: {
     /*preLoaders: [

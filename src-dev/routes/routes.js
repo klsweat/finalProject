@@ -17,6 +17,8 @@ router.get("*", function(req, res) {
 });
 
 
+
+
 //router.get('*', function(req, res) {
 //  fs.readFile("template.html", function (err, content) {
 //    res.send(content.toString());
