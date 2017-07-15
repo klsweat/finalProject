@@ -768,7 +768,7 @@ class AdminDashBorad extends Component {
                 </ul>
               </div>
               <div className="card-block">
-                <div className="list-unstyled comment-list" style={sixty}>
+                <div className="list-unstyled comment-list">
                   <div className="media">
                     {" "}
                     <span className="form-check">
