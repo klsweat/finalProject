@@ -2,6 +2,9 @@
   "name": "finalproject",
   "version": "0.1.6",
   "main": "./dist/index.js",
+  "engines": {
+    "node": "4.1.1"
+  },
   "dependencies": {
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
