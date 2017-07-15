@@ -76,8 +76,7 @@ $(document).on("ready", function(){
     
     
     $(window).on("load", function(){
-        
-        $('body').removeClass('menuclose-right');
+           
            /*cicular progress sidebar home page */   
          $('.progress_profile').circleProgress({ 
              fill: {gradient: ["#2ec7cb", "#6c8bef"]},
@@ -101,7 +100,7 @@ $(document).on("ready", function(){
             if(body_1.hasClass('horizontal-menu') === false){
                 var element = $('.sidebar-left #side-menu li a').filter(function() {
                     return this.href == url;
-                }).addClass('active').parent("li").addClass('active').closest('.nav').addClass('in').slideDown().prev().addClass('show').closest('.nav').slideDown().addClass('in').prev().addClass('show');
+                }).addClass('active').parent("li").addClass('active').closest('.nav').addClass('in').slideDown().prev().addClass('show').closest('.nav').slideDown().addClass('').prev().addClass('show');
 
                 $('.sidebar-left .nav li a').on('click', function(){
                     if( $(this).hasClass('menudropdown')=== true){ 
@@ -112,14 +111,14 @@ $(document).on("ready", function(){
                 if( $(window).width() >=1020){
                     var element = $('.sidebar-left #side-menu li a').filter(function() {
                         return this.href == url;
-                    }).addClass('active').parent("li").addClass('active').closest('.nav').addClass('in').prev().addClass('show').closest('.nav').slideDown().addClass('in').prev().addClass('show');
+                    }).addClass('active').parent("li").addClass('active').closest('.nav').addClass('in').prev().addClass('show').closest('.nav').slideDown().addClass('').prev().addClass('show');
 
                     
                      // Horizontal menu mouse over effect with click
                     
                     $('.sidebar-left > .nav > li').on('click', function(){    // If you required on hover please checkge 'click' to 'mouseover'
                         if( $(this).find('a:first-of-type').hasClass('menudropdown')==true){ 
-                            $(this).find('a:first-of-type').addClass("show").next().slideDown().parent().addClass("in");
+                            $(this).find('a:first-of-type').addClass("show").next().slideDown().parent().addClass("");
                         } 
                     }); 
                     $('.sidebar-left > .nav > li ').on('mouseleave', function(){
@@ -203,19 +202,14 @@ $(document).on("ready", function(){
     });
     
     
-    /* Card fullscreeen button script */
-    $('.push-cookie .alert.top .close').on('click', function(){
-        body_1.removeClass("push-cookie");
-    });
-    
-    
     /* Resposnsive Utility hide menu */
-    if($(window).width() >= 1440 && body_1.hasClass("no-menu-show") != true){
-        if(  body_1.hasClass("left-menu-only") === true ){
+    if($(window).width() >= 1440 && body_1.hasClass("no-menu-show") != true){  
+            if(  body_1.hasClass("left-menu-only") === true ){
                  body_1.removeClass('menuclose'); 
             }else{
                 body_1.removeClass('menuclose menuclose-right'); 
-            }               
+            }
+                    
         }else{
             if(  body_1.hasClass("left-menu-only") === true ){
                  body_1.addClass('menuclose'); 
@@ -223,13 +217,17 @@ $(document).on("ready", function(){
                 body_1.addClass('menuclose menuclose-right');
             }
             
+            
+        
+            
             // This script is for body click hide menu //
-            $(document).on('click', function(event){ if(event.target.className !== ".menu-collapse,.menu-collapse-right, .sidebar-left,.sidebar-right"){body_1.addClass('menuclose');}});
+            $(document).on('click', function(event){ if(event.target.className !== ".menu-collapse,.menu-collapse-right, .sidebar-left,.sidebar-right"){body_1.addClass('menuclose menuclose-right');}});
             $('.menu-collapse,.menu-collapse-right, .sidebar-left,.sidebar-right').on('click', function(event){event.stopPropagation();});
-            $('.dropdown-toggle,[data-toggle="dropdown"],.userprofile').dropdown();
-            // This script is for body click ends here //        
-    }
-    $('.dropdown-toggle,[data-toggle="dropdown"],.userprofile').dropdown();
+            $('.dropdown-toggle').dropdown();
+            // This script is for body click ends here //
+            
+            
+        }
     
     $(window).on('resize', function(){
         if($(window).width() >= 1440 && body_1.hasClass("no-menu-show") != true){  body_1.removeClass('menuclose menuclose-right'); }else{  body_1.addClass('menuclose menuclose-right'); }

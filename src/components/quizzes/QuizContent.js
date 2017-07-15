@@ -128,7 +128,7 @@ class QuizContent extends Component {
             >
               Quiz Name:
             </label>
-            <div className="col-md-4">
+            <div className="col-md-3">
               <input
                 className="form-control"
                 type="text"

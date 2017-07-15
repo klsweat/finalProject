@@ -4,34 +4,39 @@ import { bindAll } from "lodash";
 import $ from "jquery";
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState, convertToRaw } from "draft-js";
-import draftToMarkdown from 'draftjs-to-markdown';
+import draftToMarkdown from "draftjs-to-markdown";
+import draftToHtml from 'draftjs-to-html';
 
 
 const Fields = {};
 const onEditorStateChange = {};
 
 function uploadImageCallBack(file) {
-  return new Promise(
-    (resolve, reject) => {
-      const xhr = new XMLHttpRequest(); // eslint-disable-line no-undef
-      xhr.open('POST', 'api/file');
-      xhr.setRequestHeader('Authorization', 'Client-ID 8d26ccd12712fca');
-      const data = new FormData(); // eslint-disable-line no-undef
-      data.append('image', file);
-      xhr.send(data);
-      xhr.addEventListener('load', () => {
-        const response = JSON.parse(xhr.responseText);
-        resolve(response);
-      });
-      xhr.addEventListener('error', () => {
-        const error = JSON.parse(xhr.responseText);
-        reject(error);
-      });
-    },
-  );
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest(); // eslint-disable-line no-undef
+    xhr.open("POST", "api/file");
+    xhr.setRequestHeader("Authorization", "Client-ID 8d26ccd12712fca");
+    const data = new FormData(); // eslint-disable-line no-undef
+    data.append("image", file);
+    xhr.send(data);
+    xhr.addEventListener("load", () => {
+      const response = JSON.parse(xhr.responseText);
+      resolve(response);
+    });
+    xhr.addEventListener("error", () => {
+      const error = JSON.parse(xhr.responseText);
+      reject(error);
+    });
+  });
 }
 
-Fields["TextArea"] = ({ field, value, handleChange, editorState, onEditorStateChange }) =>
+Fields["TextArea"] = ({
+  field,
+  value,
+  handleChange,
+  editorState,
+  onEditorStateChange
+}) =>
   <div>
     <strong>{field.hl}</strong>
     <br />
@@ -41,22 +46,21 @@ Fields["TextArea"] = ({ field, value, handleChange, editorState, onEditorStateCh
       wrapperClassName="wrapperClassName"
       editorClassName="editorClassName"
       className="form-control"
-      id={field.slug}
-      value={value}
       editorState={editorState}
       onEditorStateChange={onEditorStateChange}
-       toolbar={{
-        image: { uploadCallback: uploadImageCallBack },
+      toolbar={{
+        image: { uploadCallback: uploadImageCallBack }
       }}
     />
     <div>
-    <textarea
-      readOnly
-      className="rdw-storybook-textarea"
-      value={draftToMarkdown(convertToRaw(editorState.getCurrentContent())
-      )}
-    />
-  </div>
+      <textarea
+        readOnly
+        className="rdw-storybook-textarea"
+        id={field.slug}
+        onChange={handleChange}
+        value={draftToMarkdown(convertToRaw(editorState.getCurrentContent()))}
+      />
+    </div>
 
   </div>;
 
@@ -96,7 +100,7 @@ export default class Form extends React.Component {
       type: "",
       editorState: EditorState.createEmpty()
     };
-    console.log( this.state.editorState );
+    console.log(this.state.editorState);
 
     if (typeof props.values !== "undefined") {
       // alert(JSON.stringify(props.values))
@@ -109,7 +113,7 @@ export default class Form extends React.Component {
     v[e.target.id] = e.target.value;
     this.setState(v);
 
-    console.log("handle change v", this.state.v);
+    console.log(e.target.type);
 
     if (e.target.type == "file") {
       let reader = new FileReader();
@@ -163,12 +167,14 @@ export default class Form extends React.Component {
 
   onEditorStateChange(editorState) {
     console.log("editorstate", editorState);
+      let v = this.state.values;
+      v["text"] = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+
     this.setState({
-      editorState
+      editorState: editorState,
+      values: v
     });
-    console.log( JSON.stringify(
-        convertToRaw(editorState.getCurrentContent())
-      ));
+    console.log(draftToMarkdown(convertToRaw(editorState.getCurrentContent())));
   }
 
   render() {
@@ -209,9 +215,14 @@ export default class Form extends React.Component {
             {" "}
             {this.props.fields.map(field => {
               let Field = Fields[field.type];
-              console.log(this.state.editorState)
-              return Field( {field, value: this.state.values[field.slug], handleChange: this.handleChange.bind(this), editorState: this.state.editorState, onEditorStateChange: this.onEditorStateChange.bind(this)} )
-             
+              //console.log(this.state.editorState);
+              return Field({
+                field,
+                value: this.state.values[field.slug],
+                handleChange: this.handleChange.bind(this),
+                editorState: this.state.editorState,
+                onEditorStateChange: this.onEditorStateChange.bind(this)
+              });
             })}
 
             <div id="imagePreview">

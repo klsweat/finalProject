@@ -17,14 +17,14 @@ class CoursesForm extends Component {
   }
 
   handleButtonClick(e) {
-    console.log("CLICK");
-    console.log(this.state);
+    //console.log("CLICK");
+    //console.log(this.state);
 
     var newId = {};
     newId["icourseId"] = e.target.id;
     var newState = {};
     newState["isCourse"] = "false";
-    console.log(newState);
+    //console.log(newState);
     this.props.setCourse(newId, newState);
 
     // this.setState(newState);

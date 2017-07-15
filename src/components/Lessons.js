@@ -140,7 +140,7 @@ class Lessons extends Component {
       return (
         <Wizard
           lesson={lesson}
-          key={lesson._id}
+          key={"rc" + lesson._id}
           index={index}
           getSteps={this.getSteps}
         />

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Link } from "react-router";
-import ReactDOM from "react-dom";
 import { Editor, Content } from "../../index";
 import EndOfCourse from "../quizzes/EndOfCourse";
 
@@ -12,7 +11,9 @@ class CourseQuiz extends Component {
       index: props.index + 1,
       step: 1,
       content: [],
-      lastIndexId: ""
+      lastIndexId: "",
+      btnText: "",
+      btntype: "button"
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleQuiz = this.handleQuiz.bind(this);
@@ -24,62 +25,40 @@ class CourseQuiz extends Component {
       content: JSON.parse(this.props.content)
     });
     //console.log(this.props.content);
-    console.log(this.props.lastIndex._id);
-    this.setState({
-      lastIndexId: this.props.lastIndex._id
-    });
+
   }
 
   // Notice the shorthand method syntax. Otherwise lifecycle methods are exactly the same
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevState);
+    //console.log(prevState);
   }
 
   handleQuiz() {
-    console.log("handling quiz");
-    console.log(this.props.length);
+    //console.log("handling quiz");
+    //console.log(this.props.length);
     let length = this.props.length - 1;
-    console.log(length);
+    //console.log(length);
     if (this.props.index < length) {
       return <span><Content content={this.state.content} /></span>;
     } else {
       return (
         <div>
           <EndOfCourse />
-          this.nextButton();
         </div>
       );
     }
   }
 
-  nextButton() {
-     let length = this.props.length - 1;
-    console.log(length);
-    if (this.props.index < length) {
-    <button
-      className="btn btn-primary nextBtn btn-lg pull-right"
-      type="button"
-      id={this.state.index}
-      onClick={this.handleButtonClick}
-    >
-      Next
-    </button>
-    } else {
-       <button
-      className="btn btn-primary nextBtn btn-lg pull-right"
-      type="button"
-      id={this.state.index}
-      value={"form_" + this.props.lesson._id}
-      onClick={this.handleSubmit}
-    >
-      Next
-    </button>
-
-    }
-  }
-
   handleButtonClick(e) {
     let value = e.target.id;
+
+    if(e.target.id == this.props.length){
+      setState({
+        btnText: "Submit"
+      })
+
+    }
+
     this.setState({
       step: value
     });
@@ -88,14 +67,6 @@ class CourseQuiz extends Component {
     //console.log(step);
 
     this.props.getSteps(step);
-
-    if (this.state.index == "") {
-      //console.log(this.state.index)
-      return <TestForms />;
-    }
-    console.log("length");
-
-    console.log(this.props.length);
   }
 
   render() {
@@ -120,7 +91,17 @@ class CourseQuiz extends Component {
             </div>
             <div className="wizard-footer">
               <div className="col-sm-16 ">
-                {this.nextButton()}
+                <button
+                  className="btn btn-primary nextBtn btn-lg pull-right"
+                  type={this.state.btntype}
+                  id={this.state.index}
+                  onClick={this.handleButtonClick}
+                >
+<i className="fa fa-arrow-circle-o-right"></i> 
+                </button>
+                {" "}
+
+                {" "}
               </div>
             </div>
           </div>

@@ -63,7 +63,7 @@ class CreateCourse extends Component {
   }
 
   componentDidMount () {
-    console.log(this.state.content)
+    //console.log(this.state.content)
     this.getNewContent()
   }
 
@@ -76,9 +76,9 @@ class CreateCourse extends Component {
     this.setState({
       content: c
     })
-    console.log(c)
+    //console.log(c)
     this.state.content = c
-    console.log(this.state.content)
+    //console.log(this.state.content)
   }
 
   refresh (e) {

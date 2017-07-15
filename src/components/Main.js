@@ -11,7 +11,6 @@ const Main = props => (
         {props.children}
       </div>
     </div>
-
   </div>
 )
 

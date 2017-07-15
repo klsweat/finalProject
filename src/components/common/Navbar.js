@@ -17,10 +17,9 @@ class Navbar extends Component {
       title: "Bar is closed...",
       sidebarVisible: false,
       navrefresh: true,
-      isLogin: false
+      isLogin: true
     };
     this.refreshCourses = this.refreshCourses.bind(this);
-    console.log(this.state.isLogin);
   }
 
   toggle = () => {
@@ -33,7 +32,6 @@ class Navbar extends Component {
 
   render() {
     if (this.state.isLogin) {
-      console.log("is login");
 
       return (
         <div>
@@ -48,7 +46,7 @@ class Navbar extends Component {
             <nav className="navbar navbar-toggleable-md navbar-inverse bg-faded">
               {/*<span className='navbar-brand imglogo'></span>*/}
               <span
-                className="fa fa-bars btn btn-link icon-header mr-sm-2 pull-right"
+                className="fa fa-bars btn btn-link icon-header mr-sm-2 pull-right menu-collapse"
                 onClick={this.toggle}
               />
               <div className="d-flex mr-auto" />
@@ -96,10 +94,7 @@ class Navbar extends Component {
                           />
                         </span>
                         <div className="media-body">
-                          <h6 className="mt-0 mb-1">Max Smith</h6> Cras sit amet
-                          nibh libero, in gravida nulla. Nulla vel metus
-                          scelerisque ante sollicitudin.
-                          {" "}
+                        
                         </div>
                       </span>
                     </div>
@@ -238,7 +233,7 @@ class Navbar extends Component {
                       <span className="userpic">
                         <img src="../img/user-header.png" alt="user pic" />
                       </span>
-                      {" "}<span className="text">Maxartkiller</span>
+                      {" "}<span className="text">FirstName, LastName</span>
                     </button>
                     <div className="dropdown-menu">
                       <span
@@ -293,9 +288,7 @@ const Sidebar = props =>
             />
           </span>
           <span className="media-body">
-            <span className="mt-0 mb-1">Maxartkiller</span>
-            {" "}<small>New Jersey, UK.</small>
-            {" "}
+            <span className="mt-0 mb-1">Admin</span>
           </span>
           {" "}
         </button>
@@ -340,16 +333,16 @@ const Sidebar = props =>
       </li>
       <li className="nav-item">
         {" "}
-        <a href="javascript:void(0)" className="nav-link menudropdown ">
+        <a href="javascript:void(0)" className="nav-link menudropdown "  >
           Manage<i className="fa fa-angle-down " />
         </a>
-        <ul className="nav flex-column nav-second-level">
+        <ul className="nav flex-column nav-second-level " >
           <li
             className={
-              location.pathname === "/manage/createcourse" && " nav-item"
+              location.pathname === "/createcourse" && " nav-item"
             }
           >
-            <Link className="menudropdown nav-link" to="manage/createcourse">
+            <Link className="menudropdown nav-link" to="/createcourse">
               Add Training Course
               <i className="fa fa-road" />
             </Link>
@@ -389,5 +382,6 @@ const Sidebar = props =>
     </ul>
 
   </div>;
+
 
 export default Navbar;

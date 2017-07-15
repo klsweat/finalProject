@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import ReactDOM from "react-dom";
 
 class EndOfCourse extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {}
   }
 
   // Getting all quotes once the component has mounted
@@ -15,7 +14,7 @@ class EndOfCourse extends Component {
     return (
       <div>
         <div className="form-group">
-          <label for="q1">Question 1</label>
+          <label>Question 1</label>
           <input
             type="text"
             className="form-control"
@@ -26,9 +25,9 @@ class EndOfCourse extends Component {
         </div>
         <div className="form-group">
 
-          <label for="q2">Question 2</label>
+          <label>Question 2</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="q2"
             aria-describedby="emailHelp"
@@ -37,9 +36,9 @@ class EndOfCourse extends Component {
         </div>
         <div className="form-group">
 
-          <label for="q3">Question 3</label>
+          <label>Question 3</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="q3"
             aria-describedby="emailHelp"
@@ -47,9 +46,9 @@ class EndOfCourse extends Component {
           />
         </div>
 
-        <div class="form-group">
-          <label for="exampleTextarea">Example textarea</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3" />
+        <div className="form-group">
+          <label>Example textarea</label>
+          <textarea className="form-control" id="exampleTextarea" rows="3" />
         </div>
       </div>
     );

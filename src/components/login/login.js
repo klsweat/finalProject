@@ -31,7 +31,7 @@ class login extends Component {
       password: this.state.password
     }
     API.signIn(user).then((res) => {
-      console.log(res.data._id);
+     // console.log(res.data._id);
       //if (res.data) {
       //  browserHistory.push('/Dashboard/:' + res.data.id);
       //}

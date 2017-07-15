@@ -36,7 +36,7 @@ class CoursesPanel extends Component {
     var status = "In Progress";
     var date = new Date();
 
-    console.log(e.target.value);
+    //console.log(e.target.value);
     //console.log(newState);
     this.props.setCourse(newId, newState, newName, status, date);
     //console.log(new Date().toISOString());
@@ -53,7 +53,7 @@ class CoursesPanel extends Component {
 
   render() {
     return (
-      <div className="col-md-5 col-sm-6">
+      <div className="col-md-4 col-sm-12">
 
         <div className="card text-center text-white">
           <div className="p-2 mb-2 blue-gradient"> {this.props.course.status} </div>

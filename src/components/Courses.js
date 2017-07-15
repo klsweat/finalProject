@@ -39,7 +39,7 @@ class Courses extends Component {
   }
 
   setCourse(id, bool, name, status, date) {
-    console.log(id, bool, name, status, date);
+    //console.log(id, bool, name, status, date);
     this.setState({
       isCourse: bool,
       icourseId: id,
@@ -48,7 +48,7 @@ class Courses extends Component {
       date: date
     });
 
-    console.log(this.state.date);
+    //console.log(this.state.date);
     API.updateDate(date, id.icourseId).then(res => {
       console.log(res.data);
     });

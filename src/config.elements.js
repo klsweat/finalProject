@@ -16,7 +16,6 @@ export default {
 		template : ({params})=>(
 		  	<div>
 				  <h1>{params.hl}</h1>
-
 		  		<MarkDown>{params.text}</MarkDown>
 			</div>
 		)
