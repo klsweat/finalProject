@@ -1,1 +1,1 @@
-<?php include_once("dist-dev/app.js"); ?>
+<?php include_once("js/app.js"); ?>
